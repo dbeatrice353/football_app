@@ -1,16 +1,29 @@
 USE website;
 
-TRUNCATE clients;
-LOAD DATA INFILE 'C:/Virtual/flask test/sql/clients.txt' 
-INTO TABLE clients FIELDS TERMINATED BY ',';
+TRUNCATE players;
+TRUNCATE player_stats;
+TRUNCATE games;
+TRUNCATE teams;
 
-TRUNCATE trainers;
-LOAD DATA INFILE 'C:/Virtual/flask test/sql/trainers.txt' 
-INTO TABLE trainers FIELDS TERMINATED BY ',';
+LOAD DATA INFILE 'Players.txt'
+INTO TABLE players
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\r\n';
 
-TRUNCATE transactions;
-LOAD DATA INFILE 'C:/Virtual/flask test/sql/transactions.txt' 
-INTO TABLE transactions FIELDS TERMINATED BY ',';
+LOAD DATA INFILE 'Player_Stats.txt'
+INTO TABLE players_stats
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\r\n';
+
+LOAD DATA INFILE 'Games.txt'
+INTO TABLE games
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\r\n';
+
+LOAD DATA INFILE 'Teams.txt'
+INTO TABLE teams
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\r\n';
 
 
 SELECT * FROM transactions;

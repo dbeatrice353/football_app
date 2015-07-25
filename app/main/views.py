@@ -70,8 +70,11 @@ def register():
 
         else:
             user = Trainer()
-        if Client.query.filter_by(username = form.username.data).first() or Trainer.query.filter_by(username = form.username.data).first():
+        try:
+            Client.query.filter_by(username = form.username.data).first() or Trainer.query.filter_by(username = form.username.data).first()
             return flask.render_template('register.html', form=form, duplicate = True)
+        except:
+            pass
         user.username = form.username.data
         user.first_name = form.first_name.data
         user.last_name = form.last_name.data

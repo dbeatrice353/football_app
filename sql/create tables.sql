@@ -1,30 +1,35 @@
-CREATE DATABASE IF NOT EXISTS website;
-USE website;
+USE fantasy;
 
-DROP TABLE IF EXISTS clients;
-CREATE TABLE IF NOT EXISTS clients(
-username VARCHAR(30) NOT NULL PRIMARY KEY,
-first_name VARCHAR(30) NOT NULL,
-last_name VARCHAR(30) NOT NULL,
-phone_number VARCHAR(12) NOT NULL,
-password_ VARCHAR(80) NOT NULL
+DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS player_stats;
+DROP TABLE IF EXISTS games;
+DROP TABLE IF EXISTS teams;
+
+CREATE TABLE players(
+name_ VARCHAR(50) PRIMARY KEY,
+position VARCHAR(50),
+team VARCHAR(50)
 );
 
-DROP TABLE IF EXISTS trainers;
-CREATE TABLE IF NOT EXISTS trainers(
-username VARCHAR(30) NOT NULL PRIMARY KEY,
-first_name VARCHAR(30) NOT NULL,
-last_name VARCHAR(30) NOT NULL,
-phone_number VARCHAR(12) NOT NULL,
-password_ VARCHAR(80) NOT NULL
+CREATE TABLE games(
+game_id INT AUTO_INCREMENT PRIMARY KEY,
+week_number INT,
+home_team VARCHAR(50),
+away_team VARCHAR(50),
+home_points INT,
+away_poitns INT
 );
 
-DROP TABLE IF EXISTS transactions;
-CREATE TABLE IF NOT EXISTS transactions(
-transaction_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-client_username VARCHAR(30) NOT NULL,
-trainer_username VARCHAR(30) NOT NULL,
-transaction_date DATE NOT NULL,
-dollar_amount DECIMAL NOT NULL
+CREATE TABLE player_stats(
+player_name VARCHAR(50),
+game_id INT,
+week_number INT,
+stat_type VARCHAR(50),
+stat_value DOUBLE(12,2),
+PRIMARY KEY(player_name, game_id, stat_type)
 );
 
+CREATE TABLE teams(
+team_code VARCHAR(50) PRIMARY KEY,
+team_name VARCHAR(50)
+);

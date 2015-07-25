@@ -3,10 +3,10 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 username = 'root'
-password = 'mypassword'
-host = 127.0.0.1
+password = 'kevinb97'
+host = '127.0.0.1'
 port = 3306
-schema = 'myschema'
+schema = 'webapp'
 db_string = 'mysql://%s:%s@%s:%s/%s' %(username, password, host, port, schema)
 
 
