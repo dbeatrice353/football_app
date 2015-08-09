@@ -26,11 +26,11 @@ monitor_data = Table('monitor_data', metadata,
                      )
 
 users = Table('users', metadata,
-              Column('username', String(30), primary_key =True)
-              Column('first_name', String(30))
-              Column('last_name', String(30))
-              Column('email', String(50))
-              Column('password_', String(80))
+              Column('username', String(30), primary_key =True),
+              Column('first_name', String(30)),
+              Column('last_name', String(30)),
+              Column('email', String(50)),
+              Column('password_', String(80)))
 
 
 #DROP TABLE IF EXISTS, THEN CREATE TABLE

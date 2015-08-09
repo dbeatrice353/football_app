@@ -5,7 +5,6 @@ from sqlalchemy import Table, MetaData, Column, Integer, String, Date, Float
 #CREATE ENGINE AND METADATA OBJECTS
 engine = sql.create_engine(db_string)
 metadata = MetaData()
-input('foo')
 
 #DEFINE TABLES
 monitors = Table('monitors', metadata,
