@@ -1,7 +1,7 @@
 import sqlalchemy as sql
 import os
 
-db_string = sql.engine.url.URL(OS.environ['DATABASE_URL'])
+db_string = sql.engine.url.URL(os.environ['DATABASE_URL'])
 
 class Config:
     SECRET_KEY = 'hard to guess string'
