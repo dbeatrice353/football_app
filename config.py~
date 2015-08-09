@@ -1,7 +1,14 @@
 import sqlalchemy as sql
-import os
 
-db_string = sql.engine.url.URL(OS.environ['DATABASE_URL'])
+db_config = {
+    'username': 'root',
+    'password':'PASSWORD',
+    'host': '127.0.0.1',
+    'port': 3306,
+    'database': 'fantasy2'
+    }
+
+db_string = sql.engine.url.URL(drivername = 'mysql', **db_config)
 
 class Config:
     SECRET_KEY = 'hard to guess string'
