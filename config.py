@@ -1,14 +1,14 @@
-import os
+import sqlalchemy as sql
 
+db_config = {
+    'username': 'root',
+    'password':'PASSWORD',
+    'host': '127.0.0.1',
+    'port': 3306,
+    'database': 'fantasy2'
+    }
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-username = 'root'
-password = 'kevinb97'
-host = '127.0.0.1'
-port = 3306
-schema = 'webapp'
-db_string = 'mysql://%s:%s@%s:%s/%s' %(username, password, host, port, schema)
-
+db_string = sql.engine.url.URL(drivername = 'mysql', **db_config)
 
 class Config:
     SECRET_KEY = 'hard to guess string'

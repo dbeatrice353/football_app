@@ -2,7 +2,7 @@ import pandas as pd
 import sqlalchemy
 
 
-url = sqlalchemy.engine.url.URL('mysql', username='root', password='kevinb97', host='localhost', port=3306, database='fantasy', query=None)
+url = sqlalchemy.engine.url.URL('mysql', username='root', password='mypw', host='localhost', port=3306, database='fantasy', query=None)
 
 engine = sqlalchemy.create_engine(url)
 

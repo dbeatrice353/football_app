@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Dave Smells Awful{% endblock %}
+
+{% block page_content %}
+<div class="container">
+  <div class="page-header">
+      <h1>[Stupidly Minimal] Profile for {{ request.args.get('name_') }}</h1>
+  </div>
+</div>
+<div class = "container">
+  <div class = "table-responsive">
+    {{ table.to_html(classes = "table table-striped") | safe}}
+  </div>
+</div>
+
+{% endblock %}
