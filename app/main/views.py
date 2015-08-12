@@ -26,6 +26,10 @@ def index():
     #do cool data stuff here
     return flask.render_template('index.html')
 
+@main.route('/dashboard')
+def dashboard():
+    return flask.render_template('dashboard.html')
+    
 @main.route('/player_profile')
 @login_required
 def player_profile():
