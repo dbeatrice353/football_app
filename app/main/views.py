@@ -8,22 +8,6 @@ from . import main
 from .. import db
 import flask
 
-# for nocache
-from flask import make_response
-from functools import wraps, update_wrapper
-from datetime import datetime
-
-def nocache(view):
-    @wraps(view)
-    def no_cache(*args, **kwargs):
-        response = make_response(view(*args, **kwargs))
-        response.headers['Last-Modified'] = datetime.now()
-        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
-        response.headers['Pragma'] = 'no-cache'
-        response.headers['Expires'] = '-1'
-        return response
-    return update_wrapper(no_cache, view)
-
 def login_required(f):
     '''Decorator that makes any view function require logging in.'''
     @wraps(f)
@@ -41,14 +25,8 @@ def index():
     return flask.render_template('index.html')
 
 @main.route('/dashboard')
-@nocache
 def dashboard():
     return flask.render_template('dashboard.html')
-
-@main.route('/dashboard2')
-def dashboard2():
-    return flask.render_template('dashboard2.html')
-
 
 @main.route('/player_profile')
 @login_required
