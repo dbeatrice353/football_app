@@ -39,9 +39,9 @@ def player_profile():
 @main.route('/user_profile')
 @login_required
 def user_profile():
-    username = session.get('username')
+    username = session.get('user')
     #do cool user data stuff here
-    return flask.render_template('user_profile.html')
+    return flask.render_template('user_profile.html', user = user)
 
 
 @main.route('/login', methods = ['GET','POST'])
@@ -84,6 +84,6 @@ def test():
     #This is a test view for Kevin so he can be sure his dataabse queries are
     #performnig as planned
     df = DataFetcher()
-    data = df.get_profile()
+    data = df.get_average()
     user = session.get('user')
     return flask.render_template('test.html', data = data.to_json(), user = user)
