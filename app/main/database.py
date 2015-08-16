@@ -9,11 +9,11 @@ class DataFetcher():
             )
         return positions
 
-    def get_profile(self, player):
+    def get_profile(self, player_id = 1):
         profile = pd.read_sql_query(
-            '''SELECT week_number, stat_type, stat_value from player_stats
-            WHERE player_name = '%s';
-            ''' % player,
+            '''SELECT season, stat_type, value from season_stats
+            WHERE player_id = '%s';
+            ''' % player_id,
             db.engine
             )
         return profile
@@ -25,3 +25,14 @@ class DataFetcher():
             ''' %position, db.engine
             )
         return players
+
+    def get_average(self):
+        average = pd.read_sql_query(
+        '''SELECT stat_type, AVG(value) FROM season_stats
+        LEFT JOIN players USING (player_id)
+        WHERE season = '2014'
+        AND current_position = 'WR'
+        GROUP BY stat_type;
+        ''', db.engine
+        )
+        return average

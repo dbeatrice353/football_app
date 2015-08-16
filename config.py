@@ -3,8 +3,9 @@ import os
 
 db_string = os.environ['DATABASE_URL']
 
+
 class Config:
-    SECRET_KEY = 'hard to guess string'
+    SECRET_KEY = 'sadflk$8J$9jfj1jFSIJ2201j@JR@#$'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_DATABASE_URI = db_string
     DEBUG_TB_INTERCEPT_REDIRECTS = False

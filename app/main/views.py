@@ -8,6 +8,8 @@ from . import main
 from .. import db
 import flask
 
+
+
 def login_required(f):
     '''Decorator that makes any view function require logging in.'''
     @wraps(f)
@@ -29,7 +31,7 @@ def dashboard():
     return flask.render_template('dashboard.html')
 
 @main.route('/player_profile')
-@login_required
+#@login_required
 def player_profile():
     #do cool player data stuff here
     return flask.render_template('player_profile.html')
@@ -72,3 +74,11 @@ def register():
         #flask.flash('Thanks for registering')
         return flask.redirect(flask.url_for('login'))
     return flask.render_template('register.html', form=form)
+
+@main.route('/test')
+def test():
+    #This is a test view for Kevin so he can be sure his dataabse queries are
+    #performnig as planned
+    df = DataFetcher()
+    data = df.get_profile()
+    return flask.render_template('test.html', data = data.to_json())
