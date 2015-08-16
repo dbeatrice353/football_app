@@ -49,9 +49,12 @@ def login():
    form = LoginForm()
    df = DataFetcher()
    if form.validate_on_submit():
-       pw_hash = df.get_pw_hash(form.name.data)
-       if check_password_hash(pw_hash, form.password.data):
-           flask.session['user'] = form.name.data
+       user = User.query.filter_by(email=form.email.data).first()
+       if not user:
+           return flask.render_template('login.html', form = form, registered = False)
+       pw_hash = user.password_
+       if check_password_hash(pw_hash, form.password_.data):
+           flask.session['user'] = user.email
            return flask.redirect(flask.url_for('.index'))
    return flask.render_template('login.html', form = form)
 
@@ -60,11 +63,12 @@ def login():
 def register():
     duplicate = False
     form = RegistrationForm(flask.request.form)
+    form = RegistrationForm()
     if form.validate_on_submit():
+        duplicate = User.query.filter_by(email=form.email.data).first()
+        if duplicate:
+            return flask.render_template('register.html', form=form, duplicate = True)
         user = User()
-        #if duplicate:
-            #return flask.render_template('register.html', form=form, duplicate = True)
-        user.username = form.username.data
         user.first_name = form.first_name.data
         user.last_name = form.last_name.data
         user.email = form.email.data
@@ -72,7 +76,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         #flask.flash('Thanks for registering')
-        return flask.redirect(flask.url_for('login'))
+        return flask.redirect(flask.url_for('.login'))
     return flask.render_template('register.html', form=form)
 
 @main.route('/test')
@@ -81,4 +85,5 @@ def test():
     #performnig as planned
     df = DataFetcher()
     data = df.get_profile()
-    return flask.render_template('test.html', data = data.to_json())
+    user = session.get('user')
+    return flask.render_template('test.html', data = data.to_json(), user = user)
