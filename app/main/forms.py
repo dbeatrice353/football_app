@@ -5,9 +5,8 @@ from wtforms.validators import Required
 
 
 class RegistrationForm(Form):
-    username = TextField('Username', [validators.Length(min=4, max=25)])
-    first_name = TextField('First Name', [validators.Length(min=4, max=25)])
-    last_name = TextField('Last Name', [validators.Length(min=4, max=25)])
+    first_name = TextField('First Name', [validators.Length(min=1, max=25)])
+    last_name = TextField('Last Name', [validators.Length(min=1, max=25)])
     email = TextField('Email Address', [validators.Length(min=4, max=45)])
     password_ = PasswordField('Password', [
         validators.Required(),
@@ -18,6 +17,6 @@ class RegistrationForm(Form):
     submit = SubmitField('Submit')
 
 class LoginForm(Form):
-    username = TextField('Username', [validators.Length(min=4, max=25)])
+    email = TextField('Email Address', [validators.Length(min=4, max=45)])
     password_ = PasswordField('Password', [validators.Required()])
     submit = SubmitField('Submit')
