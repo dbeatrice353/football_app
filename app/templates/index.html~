@@ -4,7 +4,6 @@
 
 {% block head %}
 {{ super() }}
-<link href="static/css/index.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
