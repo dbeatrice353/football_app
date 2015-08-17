@@ -5,11 +5,22 @@
 
 {% block content %}
 
-<div class="page-header">
-  {{ wtf.quick_form(form) }}
-{% if duplicate %}
-Whoops! Looks like that username is taken!
-{% endif %}
+<div class="page-header" style="padding-top: 100px">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <h1>Sign Up</h1>
+      <h2><small>it's free.</small></h2>
+      <br>
+      {{ wtf.quick_form(form) }}
+      {% if duplicate %}
+      Whoops! Looks like that username is taken!
+      {% endif %}
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
 </div>
 
 {% endblock %}
