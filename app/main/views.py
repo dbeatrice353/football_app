@@ -79,6 +79,14 @@ def register():
         return flask.redirect(flask.url_for('.login'))
     return flask.render_template('register.html', form=form)
 
+@main.route('/forgot-password')
+def forgot_password():
+    return flask.render_template('forgot-password.html')
+
+@main.route('/reset-password')
+def password_reset():
+    return flask.render_template('reset-password.html')
+
 @main.route('/test')
 def test():
     #This is a test view for Kevin so he can be sure his dataabse queries are
