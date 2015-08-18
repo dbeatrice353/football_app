@@ -46,7 +46,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                  <p class="text-muted">john doe</p>
+                  <p class="text-muted">{{user['full_name']}}</p>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -115,102 +115,7 @@
                               <li>
                                 <a href="#">by team<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Arizona Cardinals</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Atlanta Falcons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Baltimore Ravens</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Buffalo Bills</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Carolina Panthers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Chicago Bears</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Cincinnati Bengals</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Cleveland Browns</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dallas Cowboys</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Denver Broncos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Detroit Lions</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Green Bay Packers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Houston Texans</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Indianapolis Colts</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Jacksonville Jaguars</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Kansas City Chiefs</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Miami Dolphins</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Minnesota Vikings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">New England Patriots</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">New Orleans Saints</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">New York Giants</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">New York Jets</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Oakland Raiders</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Philadelphia Eagles</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Pittsburgh Steelers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">San Diego Chargers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">San Francisco 49ers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Seattle Seahawks</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">St. Louis Rams</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tampa Bay Buccaneers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tennessee Titans</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Washington Redskins</a>
-                                    </li>
+                                  {% include "partials/teams.html" %}
                                 </ul>
                                 <!-- /.nav-second-level -->
                               </li>
@@ -220,102 +125,7 @@
                         <li>
                           <a href="#"><i class="fa fa-users fa-fw"></i> Teams<span class="fa arrow"></span></a>
                           <ul class="nav nav-second-level">
-                              <li>
-                                  <a href="#">Arizona Cardinals</a>
-                              </li>
-                              <li>
-                                  <a href="#">Atlanta Falcons</a>
-                              </li>
-                              <li>
-                                  <a href="#">Baltimore Ravens</a>
-                              </li>
-                              <li>
-                                  <a href="#">Buffalo Bills</a>
-                              </li>
-                              <li>
-                                  <a href="#">Carolina Panthers</a>
-                              </li>
-                              <li>
-                                  <a href="#">Chicago Bears</a>
-                              </li>
-                              <li>
-                                  <a href="#">Cincinnati Bengals</a>
-                              </li>
-                              <li>
-                                  <a href="#">Cleveland Browns</a>
-                              </li>
-                              <li>
-                                  <a href="#">Dallas Cowboys</a>
-                              </li>
-                              <li>
-                                  <a href="#">Denver Broncos</a>
-                              </li>
-                              <li>
-                                  <a href="#">Detroit Lions</a>
-                              </li>
-                              <li>
-                                  <a href="#">Green Bay Packers</a>
-                              </li>
-                              <li>
-                                  <a href="#">Houston Texans</a>
-                              </li>
-                              <li>
-                                  <a href="#">Indianapolis Colts</a>
-                              </li>
-                              <li>
-                                  <a href="#">Jacksonville Jaguars</a>
-                              </li>
-                              <li>
-                                  <a href="#">Kansas City Chiefs</a>
-                              </li>
-                              <li>
-                                  <a href="#">Miami Dolphins</a>
-                              </li>
-                              <li>
-                                  <a href="#">Minnesota Vikings</a>
-                              </li>
-                              <li>
-                                  <a href="#">New England Patriots</a>
-                              </li>
-                              <li>
-                                  <a href="#">New Orleans Saints</a>
-                              </li>
-                              <li>
-                                  <a href="#">New York Giants</a>
-                              </li>
-                              <li>
-                                  <a href="#">New York Jets</a>
-                              </li>
-                              <li>
-                                  <a href="#">Oakland Raiders</a>
-                              </li>
-                              <li>
-                                  <a href="#">Philadelphia Eagles</a>
-                              </li>
-                              <li>
-                                  <a href="#">Pittsburgh Steelers</a>
-                              </li>
-                              <li>
-                                  <a href="#">San Diego Chargers</a>
-                              </li>
-                              <li>
-                                  <a href="#">San Francisco 49ers</a>
-                              </li>
-                              <li>
-                                  <a href="#">Seattle Seahawks</a>
-                              </li>
-                              <li>
-                                  <a href="#">St. Louis Rams</a>
-                              </li>
-                              <li>
-                                  <a href="#">Tampa Bay Buccaneers</a>
-                              </li>
-                              <li>
-                                  <a href="#">Tennessee Titans</a>
-                              </li>
-                              <li>
-                                  <a href="#">Washington Redskins</a>
-                              </li>
+                            {% include "partials/teams.html" %}
                           </ul>
                           <!-- /.nav-second-level -->
                         </li>
