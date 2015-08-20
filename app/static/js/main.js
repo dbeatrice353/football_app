@@ -6,7 +6,7 @@ app = angular.module('fanalyticalApp',['ngRoute']);
 
 app.controller('mainController', function($scope){
   $scope.test_data = "test";
-  $scope.change_data = function(){
-    $scope.test_data = "Ha!";
+  $scope.change_data = function(data){
+    $scope.test_data = data;
   };
 })

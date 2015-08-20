@@ -1,5 +1,4 @@
 
-body,
 .navbar.navbar-default.navbar-static-top,
 .navbar-default.sidebar,
 .sidebar-nav.navbar-collapse {
@@ -18,3 +17,9 @@ body,
 .navbar-brand {
     color: white;
 }
+/*
+THIS DOESNT WORK FOR MOBILE.
+.navbar-default.sidebar{
+  height: 5000px;
+}
+*/

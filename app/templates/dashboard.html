@@ -1,213 +1,199 @@
+<!DOCTYPE html>
+<html language="en" ng-app="fanalyticalApp">
 
+  <!-- HEAD -->
+  <head>
+    <!-- META THINGS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% extends "base.html" %}
+    <title>Fanalytical</title>
 
-{% block head %}
-{{super()}}
-
-    <!-- MetisMenu CSS -->
+    <!-- CSS: boostrap -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS: fonts -->
+    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- CSS: side menue -->
     <link href="/static/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="/static/dist/css/timeline.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
+    <!-- CSS: Admin template -->
     <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Public Page CSS -->
+    <!-- CSS: Freelancer template -->
     <link href="/static/css/freelancer.css" rel="stylesheet">
-    <!-- custom css -->
+    <!-- CSS: custom -->
     <link href="/static/css/dashboard.css" rel="stylesheet">
 
-
-    <!-- AngularJS -->
+    <!-- JAVASCRIPT: JQuery -->
+    <script src="static/js/jquery.js"></script>
+    <!-- JAVASCRIPT: Bootstrap Core -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- JAVASCRIPT: side menue -->
+    <script src="/static/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- JAVASCRIPT: Admin template -->
+    <script src="/static/dist/js/sb-admin-2.js"></script>
+    <!-- JAVASCRIPT: AngularJS -->
     <script src="/static/js/angular.min.js"></script>
     <script src="/static/js/angular-route.min.js"></script>
+    <!-- JAVASCRIPT: the AngularJS app -->
+    <script src="/static/js/main.js"></script>
+  </head>
 
-{% endblock %}
-
-
+  <!-- BODY -->
+  <body ng-controller="mainController">
     <div id="wrapper">
 
-        <!-- Navigation -->
-       {% block navbar %}
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><i class="fa fa-bar-chart"></i> Fanalytical</a>
-            </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                  <p class="text-muted">{{user['full_name']}}</p>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-user fa-fw"></i> Players<span class="fa arrow"></span></a>
-                          <ul class="nav nav-second-level">
-                              <li>
-                                  <a href="#">by name</a>
-                              </li>
-                              <li>
-                                <a href="#">by position <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">QB</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">RB</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">WR</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">TE</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">K</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">DL</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">DB</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-third-level -->
-                              </li>
-                              <li>
-                                <a href="#">by team<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                  {% include "partials/teams.html" %}
-                                </ul>
-                                <!-- /.nav-second-level -->
-                              </li>
-                          </ul>
-                          <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-users fa-fw"></i> Teams<span class="fa arrow"></span></a>
-                          <ul class="nav nav-second-level">
-                            {% include "partials/teams.html" %}
-                          </ul>
-                          <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-arrows fa-fw"></i> Positions<span class="fa arrow"></span></a>
-                          <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">QB</a>
-                            </li>
-                            <li>
-                                <a href="#">RB</a>
-                            </li>
-                            <li>
-                                <a href="#">WR</a>
-                            </li>
-                            <li>
-                                <a href="#">TE</a>
-                            </li>
-                            <li>
-                                <a href="#">K</a>
-                            </li>
-                            <li>
-                                <a href="#">DL</a>
-                            </li>
-                            <li>
-                                <a href="#">DB</a>
-                            </li>
-                          </ul>
-                          <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-flash fa-fw"></i> Ninja Tools</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-dollar fa-fw"></i> bet moolah<span class="fa arrow"></span></a>
-                          <ul class="nav nav-second-level">
-                            <li>
-                                <a href="https://www.fanduel.com/" target="_blank">Fandual</a>
-                            </li>
-                          </ul>
-                          <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-
-        </nav>
-        {% endblock %}
-
-        {% block content %}
-        <div ng-app="fanalyticalApp">
-          <div ng-controller="mainController" id="page-wrapper">
-            <div class="row">
-              <div class="col-lg-12">
-                  <h1 class="page-header">Dashboard</h1>
-                  <a href="" ng-click="change_data()">Change Data</a>
-                  <p><span>{{test_data|angular}}</span></p>
-              </div>
-            </div>
-          </div>
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><i class="fa fa-bar-chart"></i> Fanalytical</a>
         </div>
-        <!-- /#page-wrapper -->
-
-
-        {% endblock %}
-
-{% block scripts %}
-{{super()}}
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/static/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="/static/dist/js/sb-admin-2.js"></script>
-<!-- the app -->
-<script src="/static/js/main.js"></script>
-
-{% endblock %}
+        <!-- /.navbar-header -->
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+              <p class="text-muted">{{user['full_name']}}</p>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-user fa-fw"></i> Players<span class="fa arrow"></span></a>
+                      <ul class="nav nav-second-level">
+                          <li>
+                              <a href="#">by name</a>
+                          </li>
+                          <li>
+                            <a href="#">by position <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="#">QB</a>
+                                </li>
+                                <li>
+                                    <a href="#">RB</a>
+                                </li>
+                                <li>
+                                    <a href="#">WR</a>
+                                </li>
+                                <li>
+                                    <a href="#">TE</a>
+                                </li>
+                                <li>
+                                    <a href="#">K</a>
+                                </li>
+                                <li>
+                                    <a href="#">DL</a>
+                                </li>
+                                <li>
+                                    <a href="#">DB</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-third-level -->
+                          </li>
+                          <li>
+                            <a href="#">by team<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                              {% include "partials/teams.html" %}
+                            </ul>
+                            <!-- /.nav-second-level -->
+                          </li>
+                      </ul>
+                      <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-users fa-fw"></i> Teams<span class="fa arrow"></span></a>
+                      <ul class="nav nav-second-level">
+                        {% include "partials/teams.html" %}
+                      </ul>
+                      <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-arrows fa-fw"></i> Positions<span class="fa arrow"></span></a>
+                      <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">QB</a>
+                        </li>
+                        <li>
+                            <a href="#">RB</a>
+                        </li>
+                        <li>
+                            <a href="#">WR</a>
+                        </li>
+                        <li>
+                            <a href="#">TE</a>
+                        </li>
+                        <li>
+                            <a href="#">K</a>
+                        </li>
+                        <li>
+                            <a href="#">DL</a>
+                        </li>
+                        <li>
+                            <a href="#">DB</a>
+                        </li>
+                      </ul>
+                      <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-flash fa-fw"></i> Ninja Tools</a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-dollar fa-fw"></i> bet moolah<span class="fa arrow"></span></a>
+                      <ul class="nav nav-second-level">
+                        <li>
+                            <a href="https://www.fanduel.com/" target="_blank">Fandual</a>
+                        </li>
+                      </ul>
+                      <!-- /.nav-second-level -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+      </nav>
+      <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-9">
+            <h1 class="page-header">Dashboard</h1>
+            <p><span>{{test_data|angular}}</span></p>
+        </div>
+      </div>
+    <!-- wrapper -->
+    </div>
+  </body>
+</html>
