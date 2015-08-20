@@ -1,5 +1,6 @@
 from flask import render_template, session, redirect, url_for, current_app, request
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask.ext.triangle import Triangle
 from .forms import LoginForm, RegistrationForm
 from .database import DataFetcher
 from functools import wraps

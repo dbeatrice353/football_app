@@ -29,12 +29,11 @@
     <!-- AngularJS -->
     <script src="/static/js/angular.min.js"></script>
     <script src="/static/js/angular-route.min.js"></script>
-    <!-- the app -->
-    <script src="/static/js/main.js"></script>
+
 {% endblock %}
 
 
-    <div id="wrapper" ng-app="fanalyticalApp">
+    <div id="wrapper">
 
         <!-- Navigation -->
        {% block navbar %}
@@ -184,18 +183,21 @@
         {% endblock %}
 
         {% block content %}
-        <div id="page-wrapper">
-          <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Dashboard</h1>
+        <div ng-app="fanalyticalApp">
+          <div ng-controller="mainController" id="page-wrapper">
+            <div class="row">
+              <div class="col-lg-12">
+                  <h1 class="page-header">Dashboard</h1>
+                  <a href="" ng-click="change_data()">Change Data</a>
+                  <p><span>{{test_data|angular}}</span></p>
+              </div>
             </div>
           </div>
         </div>
         <!-- /#page-wrapper -->
-    </div>
-    <!-- /#wrapper -->
 
-{% endblock %}
+
+        {% endblock %}
 
 {% block scripts %}
 {{super()}}
@@ -205,5 +207,7 @@
 <script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/static/dist/js/sb-admin-2.js"></script>
+<!-- the app -->
+<script src="/static/js/main.js"></script>
 
 {% endblock %}

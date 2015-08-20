@@ -4,14 +4,9 @@
 // include ngRoute to manage routing
 app = angular.module('fanalyticalApp',['ngRoute']);
 
-// configure the routes
-fanalyticalApp.config(function($routeProvider) {
-      $routeProvider
-          .when('/test-route', {
-              controller  : 'mainController'
-          })
-  });
-
-app.controller('mainController', function(){
-  alert("test!");
+app.controller('mainController', function($scope){
+  $scope.test_data = "test";
+  $scope.change_data = function(){
+    $scope.test_data = "Ha!";
+  };
 })
