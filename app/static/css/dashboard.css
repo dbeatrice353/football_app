@@ -1,11 +1,20 @@
 
 .navbar.navbar-default.navbar-static-top,
 .navbar-default.sidebar,
-.sidebar-nav.navbar-collapse {
+.sidebar-nav.navbar-collapse,
+.nav.nav-second-level,
+.chat-panel.panel.panel-default > .panel-body,
+.right-side,
+.saved-chart-link,
+.navbar-fixed-bottom,
+.saved-chart-link{
   background-color: #2c3e50;
 }
 
-.navbar-default .navbar-brand {
+.chat-panel-li {
+  padding-bottom: 30px;
+}
+.navbar-default.navbar-brand {
   color: white;
 }
 
@@ -13,19 +22,19 @@
   text-decoration: none;
   background-color: #1A242F;
 }
-/*
-.navbar-brand {
-  color: white;
-}
-*/
 
 .data-view {
     display: none;
 }
 
-*/
-/*THIS DOESNT WORK FOR MOBILE.
-.navbar-default.sidebar{
-  height: 100%;
+#footer_content > p{
+  font-size: small;
 }
-*/
+
+#saved_charts > h4{
+  color: #18BC9C;
+}
+
+.data-views{
+  padding-bottom: 60px;
+}

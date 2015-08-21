@@ -81,7 +81,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
+                            <input type="text" class="form-control" placeholder="Search data...">
                             <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <i class="fa fa-search"></i>
@@ -115,10 +115,10 @@
                     </li>
                     <li>
                       <a href="#"><i class="fa fa-users fa-fw"></i> Teams<span class="fa arrow"></span></a>
+                      <!-- /.nav-second-level -->
                       <ul class="nav nav-second-level">
                         {% include "partials/teams.html" %}
                       </ul>
-                      <!-- /.nav-second-level -->
                     </li>
                     <li>
                       <a href="#"><i class="fa fa-arrows fa-fw"></i> Positions<span class="fa arrow"></span></a>
@@ -139,6 +139,101 @@
                       </ul>
                       <!-- /.nav-second-level -->
                     </li>
+                    <li class="chat-panel-li">
+                      <div class="chat-panel panel panel-default">
+                          <div class="panel-heading">
+                              <i class="fa fa-folder fa-fw"></i>
+                              Saved Charts
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                              <ul class="chat">
+                                <li>
+                                  <!-- the style is in the tag because i couldnt get it to work in the sheet. -->
+                                  <a class="saved-chart-link" style="background-color: #2c3e50;">chart 1</a>
+                                  <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                          <i class="fa fa-chevron-down"></i>
+                                      </button>
+                                      <ul class="dropdown-menu slidedown">
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-external-link-square fa-fw"></i> Open
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-remove fa-fw"></i> Delete
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                </li>
+                                <li>
+                                  <a class="saved-chart-link" style="background-color: #2c3e50;">chart 3</a>
+                                  <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                          <i class="fa fa-chevron-down"></i>
+                                      </button>
+                                      <ul class="dropdown-menu slidedown">
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-external-link-square fa-fw"></i> Open
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-remove fa-fw"></i> Delete
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                </li>
+                                <li>
+                                  <a class="saved-chart-link" style="background-color: #2c3e50;">my graph</a>
+                                  <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                          <i class="fa fa-chevron-down"></i>
+                                      </button>
+                                      <ul class="dropdown-menu slidedown">
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-external-link-square fa-fw"></i> Open
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-remove fa-fw"></i> Delete
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                </li>
+                                <li>
+                                  <a class="saved-chart-link" style="background-color: #2c3e50;">temp</a>
+                                  <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                          <i class="fa fa-chevron-down"></i>
+                                      </button>
+                                      <ul class="dropdown-menu slidedown">
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-external-link-square fa-fw"></i> Open
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="#">
+                                                  <i class="fa fa-remove fa-fw"></i> Delete
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                          </div>
+                          <!-- /.panel-body -->
+                      </div>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -149,80 +244,94 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-8">
+          <br>
+          <br>
             <!-- VIEWS START HERE -->
-            <h1 class="page-header">Dashboard</h1>
-            <a href="#" ng-click="show_player(5)">Antonio Gates</a>
-            <br>
-            <!-- VIEW 1 -->
-            <div id="players_view" class="data-view">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h3 class="panel-title">{{player.name|angular}}</h3>
-                    </div>
-                    <div class="col-sm-4">
-                      <a class="close" ng-click="close_current_view()">×</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <ul>
-                    <li>{{player.team|angular}}</li>
-                    <li>{{player.college|angular}}</li>
-                    <li>{{player.age|angular}}</li>
-                    <li>{{player.DOB|angular}}</li>
-                    <li>{{player.height|angular}}</li>
-                    <li>{{player.weight|angular}}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- VIEW 2 -->
-            <div id="positions_view" class="data-view">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h3 class="panel-title">Positions</h3>
-                    </div>
-                    <div class="col-sm-4">
-                      <a class="close" ng-click="close_current_view()">×</a>
+            <div class="data-views">
+              <a href="#" ng-click="show_player(5)">Antonio Gates</a>
+              <br>
+              <!-- VIEW 1 -->
+              <div id="players_view" class="data-view">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <h3 class="panel-title">{{player.name|angular}}</h3>
+                      </div>
+                      <div class="col-sm-4">
+                        <a class="close" ng-click="close_current_view()">×</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="panel-body">
-                  <p><span>{{position_value|angular}}</span></p>
-                </div>
-              </div>
-            </div>
-
-            <!-- VIEW 3 -->
-            <div id="teams_view" class="data-view">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h3 class="panel-title">Teams</h3>
-                    </div>
-                    <div class="col-sm-4">
-                      <a class="close" ng-click="close_current_view()">×</a>
-                    </div>
+                  <div class="panel-body">
+                    <ul>
+                      <li>{{player.team|angular}}</li>
+                      <li>{{player.college|angular}}</li>
+                      <li>{{player.age|angular}}</li>
+                      <li>{{player.DOB|angular}}</li>
+                      <li>{{player.height|angular}}</li>
+                      <li>{{player.weight|angular}}</li>
+                    </ul>
                   </div>
                 </div>
-                <div class="panel-body">
-                  <p><span>{{team_value|angular}}</span></p>
+              </div>
+
+              <!-- VIEW 2 -->
+              <div id="positions_view" class="data-view">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <h3 class="panel-title">Positions</h3>
+                      </div>
+                      <div class="col-sm-4">
+                        <a class="close" ng-click="close_current_view()">×</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <p><span>{{position_value|angular}}</span></p>
+                  </div>
                 </div>
               </div>
-            </div>
 
+              <!-- VIEW 3 -->
+              <div id="teams_view" class="data-view">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <h3 class="panel-title">Teams</h3>
+                      </div>
+                      <div class="col-sm-4">
+                        <a class="close" ng-click="close_current_view()">×</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <p><span>{{team_value|angular}}</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 4 -->
+              <div id="null_view" class="well well-lg">
+                <text class="text-muted">Browse data with the menue.</text>
+              </div>
+            </div>
             <!-- VIEWS END HERE -->
-
-            <div class="col-sm-1">
-            </div>
+        </div>
+        <div class="col-sm-1">
         </div>
       </div>
+      <footer class="navbar-fixed-bottom">
+        <div class="container">
+          <div class="container" id="footer_content">
+            <br>
+            <p class="text-muted text-center"><span class="copyright">&copy;</span>2015 fanalytical</p>
+          </div>
+        </div>
+      </footer>
     <!-- wrapper -->
     </div>
   </body>

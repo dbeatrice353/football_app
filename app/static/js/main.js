@@ -4,8 +4,9 @@
 app = angular.module('fanalyticalApp',['ngRoute']);
 
 app.controller('mainController', function($scope,$http){
+  $scope.null_view_id = 'null_view';
   // keep track of which view is visible
-  $scope.current_view_id = null;
+  $scope.current_view_id = $scope.null_view_id;
 
   // these variables connect to the content tags in the views
   $scope.position_value = null;
@@ -20,19 +21,11 @@ app.controller('mainController', function($scope,$http){
                     weight: null,
                     DOB: null
                   };
-  //$scope.player = {
-  //  name: null,
-  //  team: null,
-  //  college: null,
-  //  age: null,
-  //  height: null,
-  //  weight: null,
-  //  DOB: null;
-  //};
 
   $scope.close_current_view = function(){
     hide_element($scope.current_view_id);
-    $scope.current_view_id = null;
+    show_element($scope.null_view_id);
+    $scope.current_view_id = $scope.null_view_id;
   }
 
   $scope.show_position = function(value){
@@ -74,9 +67,7 @@ app.controller('mainController', function($scope,$http){
   // Show the proper view
   show_view = function(view_id){
     if($scope.current_view_id != view_id){
-      if($scope.current_view_id){
-        hide_element($scope.current_view_id);
-      }
+      hide_element($scope.current_view_id);
       $scope.current_view_id = view_id
       show_element(view_id);
     }
@@ -97,15 +88,3 @@ app.controller('mainController', function($scope,$http){
   };
 
 })
-
-// hide all views
-// show a progress bar
-// request data from server
-// on timeout or failure
-//      close progress bar
-//      show previous view if there was one
-//      show "failure" popup
-// on sucess
-//      turn off the progress bar
-//      load the received data into the proper view
-//      turn on the proper view
