@@ -151,16 +151,30 @@
         <div class="col-sm-8">
             <!-- VIEWS START HERE -->
             <h1 class="page-header">Dashboard</h1>
-            <p><span>{{test_data|angular}}</span></p>
-
-            <!-- VIEW 2 -->
+            <a href="#" ng-click="show_player(5)">Antonio Gates</a>
+            <br>
+            <!-- VIEW 1 -->
             <div id="players_view" class="data-view">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Players</h3>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <h3 class="panel-title">{{player.name|angular}}</h3>
+                    </div>
+                    <div class="col-sm-4">
+                      <a class="close" ng-click="close_current_view()">×</a>
+                    </div>
+                  </div>
                 </div>
                 <div class="panel-body">
-                  <p><span>{{player_value|angular}}</span></p>
+                  <ul>
+                    <li>{{player.team|angular}}</li>
+                    <li>{{player.college|angular}}</li>
+                    <li>{{player.age|angular}}</li>
+                    <li>{{player.DOB|angular}}</li>
+                    <li>{{player.height|angular}}</li>
+                    <li>{{player.weight|angular}}</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -169,7 +183,14 @@
             <div id="positions_view" class="data-view">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Positions</h3>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <h3 class="panel-title">Positions</h3>
+                    </div>
+                    <div class="col-sm-4">
+                      <a class="close" ng-click="close_current_view()">×</a>
+                    </div>
+                  </div>
                 </div>
                 <div class="panel-body">
                   <p><span>{{position_value|angular}}</span></p>
@@ -181,7 +202,14 @@
             <div id="teams_view" class="data-view">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Teams</h3>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <h3 class="panel-title">Teams</h3>
+                    </div>
+                    <div class="col-sm-4">
+                      <a class="close" ng-click="close_current_view()">×</a>
+                    </div>
+                  </div>
                 </div>
                 <div class="panel-body">
                   <p><span>{{team_value|angular}}</span></p>

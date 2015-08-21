@@ -27,6 +27,7 @@ def index():
     #do cool data stuff here
     return flask.render_template('index.html')
 
+
 @main.route('/dashboard')
 def dashboard():
     ### TEMPORARY DATA ###
@@ -77,11 +78,21 @@ def dashboard():
     ######################
     return flask.render_template('dashboard.html',user=user,teams=teams,positions=positions)
 
-@main.route('/player_profile')
+
+@main.route('/player_profile/<int:player_id>')
 #@login_required
-def player_profile():
-    #do cool player data stuff here
-    return flask.render_template('player_profile.html')
+def player_profile(player_id):
+    ### TEMPORARY DATA ###
+    player = {'name':'Antonio Gates',
+              'team':'San Diego Chargers',
+              'college':'Kent State',
+              'DOB':'1980-06-18',
+              'age':'35',
+              'height':'6ft. 4in.',
+              'weight':'206'}
+    ######################
+    return flask.jsonify(**player)
+
 
 @main.route('/user_profile')
 @login_required

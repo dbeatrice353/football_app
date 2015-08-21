@@ -1,17 +1,39 @@
 
-
 // create the module and name it "fanalyticalApp"
 // include ngRoute to manage routing
 app = angular.module('fanalyticalApp',['ngRoute']);
 
-app.controller('mainController', function($scope){
+app.controller('mainController', function($scope,$http){
   // keep track of which view is visible
   $scope.current_view_id = null;
 
   // these variables connect to the content tags in the views
   $scope.position_value = null;
   $scope.team_value = null;
-  $scope.position_value =  null;
+
+  $scope.player = {
+                    name: null,
+                    team: null,
+                    college: null,
+                    age: null,
+                    height: null,
+                    weight: null,
+                    DOB: null
+                  };
+  //$scope.player = {
+  //  name: null,
+  //  team: null,
+  //  college: null,
+  //  age: null,
+  //  height: null,
+  //  weight: null,
+  //  DOB: null;
+  //};
+
+  $scope.close_current_view = function(){
+    hide_element($scope.current_view_id);
+    $scope.current_view_id = null;
+  }
 
   $scope.show_position = function(value){
     var view_id = 'positions_view';
@@ -25,10 +47,28 @@ app.controller('mainController', function($scope){
     $scope.team_value = value;
   };
 
-  $scope.show_player= function(value){
+  $scope.show_player = function(player_id){
+    // specify the type of view we want
     var view_id = 'players_view';
-    show_view(view_id);
-    $scope.position_value = value;
+    // define the request
+    $http.get("/player_profile/" + String(player_id))
+    // on success, do the following:
+    .success(function(response) {
+      // update the page with the new data
+      set_player_data(response)
+      // make the updated portion of the page visible
+      show_view(view_id);
+      });
+  };
+
+  set_player_data = function(player){
+    $scope.player.name = player.name;
+    $scope.player.team = player.team;
+    $scope.player.college = player.college;
+    $scope.player.age = player.age;
+    $scope.player.height = player.height;
+    $scope.player.weight = player.weight;
+    $scope.player.DOB = player.DOB;
   };
 
   // Show the proper view
