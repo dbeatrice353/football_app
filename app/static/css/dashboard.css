@@ -6,20 +6,26 @@
 }
 
 .navbar-default .navbar-brand {
-    color: white;
+  color: white;
 }
 
 .nav > li > a:focus, .nav > li > a:hover {
-    text-decoration: none;
-    background-color: #1A242F;
-}
-
-.navbar-brand {
-    color: white;
+  text-decoration: none;
+  background-color: #1A242F;
 }
 /*
-THIS DOESNT WORK FOR MOBILE.
+.navbar-brand {
+  color: white;
+}
+*/
+
+.data-view {
+    display: none;
+}
+
+*/
+/*THIS DOESNT WORK FOR MOBILE.
 .navbar-default.sidebar{
-  height: 5000px;
+  height: 100%;
 }
 */

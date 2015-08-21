@@ -65,8 +65,17 @@ def dashboard():
         'Tennessee Titans',
         'Washington Redskins'
         ]
+    positions = [
+        'QB',
+        'RB',
+        'WR',
+        'TE',
+        'K',
+        'DL',
+        'DB'
+        ]
     ######################
-    return flask.render_template('dashboard.html',user=user,teams=teams)
+    return flask.render_template('dashboard.html',user=user,teams=teams,positions=positions)
 
 @main.route('/player_profile')
 #@login_required

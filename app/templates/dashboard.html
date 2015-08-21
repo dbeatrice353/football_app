@@ -99,27 +99,7 @@
                           <li>
                             <a href="#">by position <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#">QB</a>
-                                </li>
-                                <li>
-                                    <a href="#">RB</a>
-                                </li>
-                                <li>
-                                    <a href="#">WR</a>
-                                </li>
-                                <li>
-                                    <a href="#">TE</a>
-                                </li>
-                                <li>
-                                    <a href="#">K</a>
-                                </li>
-                                <li>
-                                    <a href="#">DL</a>
-                                </li>
-                                <li>
-                                    <a href="#">DB</a>
-                                </li>
+                              {% include "partials/positions.html" %}
                             </ul>
                             <!-- /.nav-third-level -->
                           </li>
@@ -143,27 +123,7 @@
                     <li>
                       <a href="#"><i class="fa fa-arrows fa-fw"></i> Positions<span class="fa arrow"></span></a>
                       <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">QB</a>
-                        </li>
-                        <li>
-                            <a href="#">RB</a>
-                        </li>
-                        <li>
-                            <a href="#">WR</a>
-                        </li>
-                        <li>
-                            <a href="#">TE</a>
-                        </li>
-                        <li>
-                            <a href="#">K</a>
-                        </li>
-                        <li>
-                            <a href="#">DL</a>
-                        </li>
-                        <li>
-                            <a href="#">DB</a>
-                        </li>
+                        {% include "partials/positions.html" %}
                       </ul>
                       <!-- /.nav-second-level -->
                     </li>
@@ -188,9 +148,51 @@
       <div class="row">
         <div class="col-sm-3">
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-8">
+            <!-- VIEWS START HERE -->
             <h1 class="page-header">Dashboard</h1>
             <p><span>{{test_data|angular}}</span></p>
+
+            <!-- VIEW 2 -->
+            <div id="players_view" class="data-view">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Players</h3>
+                </div>
+                <div class="panel-body">
+                  <p><span>{{player_value|angular}}</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIEW 2 -->
+            <div id="positions_view" class="data-view">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Positions</h3>
+                </div>
+                <div class="panel-body">
+                  <p><span>{{position_value|angular}}</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIEW 3 -->
+            <div id="teams_view" class="data-view">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Teams</h3>
+                </div>
+                <div class="panel-body">
+                  <p><span>{{team_value|angular}}</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIEWS END HERE -->
+
+            <div class="col-sm-1">
+            </div>
         </div>
       </div>
     <!-- wrapper -->
