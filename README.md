@@ -6,8 +6,8 @@ The SPA consists of a "frame" page, and some javascript to request data and acti
 
 The javascript consists of an angular app called "FanalyticalApp". FanalyticalApp does 2 things:
 
-1) it binds buttons and links on the page to methods that acquire and display data.
-2) it saves the state of the app (think of a FSM). In concrete terms, the state of the app is just a matter of what view/data is being displayed to the user in the SPA.
+- it binds buttons and links on the page to methods that acquire and display data.
+- it saves the state of the app (think of a FSM). In concrete terms, the state of the app is just a matter of what view/data is being displayed to the user in the SPA.
 
 A quick note on the html: Each view/data state of the app has a corresponding div in dashboard.html. Each of the state divs are hidden by default. To enter a state, the javascript simply hides the div of the previous state (if applicable), and unhides the div of the new state. Look for a div of class "data-views" in dashboard.html. This parent div contains the different state/view divs.
 
@@ -18,7 +18,7 @@ Let's step through a use case:
   - request the particular player's data from the server
   - place the data in an instance variable
   - show the proper view 
-  - register the state change by setting [the app's scope].current_view_id = [the view_id] (this happens in the show_view method)
+  - register the state change by setting [the app's scope].current_view_id = view_id (this happens in the show_view method)
 
 Thats basically it: Request data, hold it in instance variables, swap out the views, and save the new state.
 
